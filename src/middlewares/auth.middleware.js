@@ -4,6 +4,9 @@ export const authorizeRole = (roles) => {
   return (req, res, next) => {
     try {
       const authHeader = req.headers.authorization;
+      console.log("Headers: ", req.headers);
+      console.log("Authorization Header: ", req.headers.authorization);
+
       if (!authHeader || !authHeader.startsWith("Bearer ")) {
         return res.status(401).json({ error: "Usuario no autenticado" });
       }

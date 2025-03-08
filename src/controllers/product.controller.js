@@ -1,3 +1,7 @@
+import ProductRepository from "../repositories/product.repository.js";
+
+const productRepository = new ProductRepository(); 
+
 export default class ProductController {
   async getAllProducts(req, res) {
     try {

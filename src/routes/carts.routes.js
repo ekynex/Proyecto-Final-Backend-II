@@ -6,6 +6,6 @@ const router = Router();
 const cartController = new CartController();
 
 router.get("/:id", cartController.getCartByUserId.bind(cartController));
-router.post("/:id/product", authorizeRole(["user"]), cartController.addProductToCart.bind(cartController));
+router.post("/:id/product", authorizeRole(["user"]), cartController.addProductToCart);
 
 export default router;

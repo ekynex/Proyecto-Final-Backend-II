@@ -7,13 +7,14 @@ class CartController {
 
   async getCartByUserId(req, res) {
     try {
-      const cart = await this.cartRepository.getCartByUserId(req.params.userId);
+      const cart = await this.cartRepository.getCartByUserId(req.params.id);  
       if (!cart) return res.status(404).json({ message: "Carrito no encontrado" });
       res.json(cart);
     } catch (error) {
       res.status(500).json({ error: "Error al obtener el carrito" });
     }
   }
+  
 
   async addProductToCart(req, res) {
     try {
