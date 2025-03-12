@@ -2,10 +2,22 @@ import CartsModel from "../models/carts.model.js";
 import CartDTO from "../DTOs/cart.dto.js";
 
 export default class Cart {
+  
+  createCart = async (userId) => {
+    try {
+      return await CartsModel.create({ userId, products: [] });
+    } catch (error) {
+      console.error(error);
+      return null;
+    }
+  };
+
   getCartByUserId = async (userId) => {
     try {
-      const cart = await CartsModel.findOne({ userId }).populate("products.productId");
-      return cart ? new CartDTO(cart) : null; 
+      const cart = await CartsModel.findOne({ userId }).populate(
+        "products.productId"
+      );
+      return cart ? new CartDTO(cart) : null;
     } catch (error) {
       console.log(error);
       return null;

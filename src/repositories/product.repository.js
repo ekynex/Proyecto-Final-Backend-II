@@ -20,4 +20,8 @@ export default class ProductRepository {
   async updateProduct(id, productData) {
     return await this.productDAO.updateProduct(id, productData);
   }
+
+  async deleteProduct(id) {
+    return await this.productDAO.deleteProduct(id);
+  }
 }

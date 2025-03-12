@@ -16,6 +16,8 @@ export const authorizeRole = (roles) => {
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
       req.user = decoded; 
 
+      console.log("Usuario autenticado:", req.user); 
+
       if (!roles.includes(req.user.role)) {
         return res.status(403).json({ error: "No tienes permisos para realizar esta acción" });
       }
